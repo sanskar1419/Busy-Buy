@@ -1,9 +1,9 @@
 import styles from "./MenuList.module.css";
-import homeImg from "../images/home.png";
-import orderImg from "../images/order.png";
-import cartImg from "../images/Cart.png";
-import logoutImg from "../images/logout.png";
-import crossImg from "../images/delete-button.png";
+import homeImg from "../../images/home.png";
+import orderImg from "../../images/order.png";
+import cartImg from "../../images/Cart.png";
+import logoutImg from "../../images/logout.png";
+import crossImg from "../../images/delete-button.png";
 
 function MenuList({ setMenuList }) {
   return (

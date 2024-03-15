@@ -7,6 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   transition: all ease-in-out;
+  min-height: 100vh;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
 }
 
 code {

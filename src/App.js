@@ -1,13 +1,12 @@
-import { useState } from "react";
-import MenuList from "./components/MenuList";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
+import Home from "./pages/Home/Home";
+import SignIn from "./pages/SignIn/SignIn";
 
 function App() {
-  const [menuList, setMenuList] = useState(false);
   return (
     <>
-      <Navbar setMenuList={setMenuList} />
-      {menuList ? <MenuList setMenuList={setMenuList} /> : null}
+      <Navbar />
+      <SignIn />
     </>
   );
 }
