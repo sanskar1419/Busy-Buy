@@ -3,6 +3,7 @@ import Home from "./pages/Home/Home";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
 import { useValues } from "./context/authContext";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const { isLoggedIn } = useValues();
@@ -10,6 +11,7 @@ function App() {
     <>
       <Navbar />
       <SignUp />
+      <Toaster position="top-center" reverseOrder={false} />
     </>
   );
 }

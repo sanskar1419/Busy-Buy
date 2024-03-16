@@ -6,7 +6,7 @@ function SignIn() {
     <div className={styles.container}>
       <div className={styles.signInContainer}>
         <div className={styles.headingContainer}>
-          <img src={signInImg} alt="SignIn image" />
+          <img src={signInImg} alt="SignIn" />
           <h2>Sign In Here</h2>
         </div>
         <form>
