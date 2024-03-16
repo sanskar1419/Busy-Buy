@@ -1,5 +1,6 @@
 import styles from "./Signin.module.css";
 import signInImg from "../../images/login.png";
+import { Link } from "react-router-dom";
 
 function SignIn() {
   return (
@@ -18,7 +19,9 @@ function SignIn() {
             <label>Password</label>
             <input type="password" placeholder="Enter Your Password" />
           </div>
-          <h4>Don't Have an account ?</h4>
+          <Link to="/signUp">
+            <h4>Don't Have an account ?</h4>
+          </Link>
           <div className={styles.buttonContainer}>
             <button>Sign In</button>
           </div>

@@ -3,6 +3,7 @@ import signUpImg from "../../images/sign-up.png";
 import { useState } from "react";
 import useSignUp from "../../hooks/useSignUp";
 import { PropagateLoader } from "react-spinners";
+import { Link } from "react-router-dom";
 
 function SignUp() {
   const [inputs, setInputs] = useState({
@@ -65,7 +66,9 @@ function SignUp() {
               required
             />
           </div>
-          <h4>Already Have a account ?</h4>
+          <Link to="/signIn">
+            <h4>Already Have a account ?</h4>
+          </Link>
           <div className={styles.buttonContainer}>
             {loading ? (
               <PropagateLoader color="rgb(102, 102, 240)" />

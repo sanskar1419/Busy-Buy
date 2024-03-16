@@ -6,6 +6,7 @@ import logoutImg from "../../images/logout.png";
 import crossImg from "../../images/delete-button.png";
 import logInImg from "../../images/access.png";
 import { useValues } from "../../context/authContext";
+import { NavLink } from "react-router-dom";
 
 function MenuList({ setMenuList }) {
   const { isLoggedIn } = useValues();
@@ -21,7 +22,14 @@ function MenuList({ setMenuList }) {
       <div className={styles.buttons}>
         <div className={styles.individualButtonContainer}>
           <img src={homeImg} alt="Home" />
-          <h4>Home</h4>
+          <NavLink
+            to="/"
+            style={({ isActive }) =>
+              isActive ? { color: "Red" } : { color: "white" }
+            }
+          >
+            <h4>Home</h4>
+          </NavLink>
         </div>
         {isLoggedIn ? (
           <>
@@ -41,7 +49,14 @@ function MenuList({ setMenuList }) {
         ) : (
           <div className={styles.individualButtonContainer}>
             <img src={logInImg} alt="login" />
-            <h4>Sign In</h4>
+            <NavLink
+              to="signIn"
+              style={({ isActive }) =>
+                isActive ? { color: "Red" } : { color: "white" }
+              }
+            >
+              <h4>SignIn</h4>
+            </NavLink>
           </div>
         )}
       </div>

@@ -6,6 +6,7 @@ import menuImg from "../../images/menus.png";
 import logInImg from "../../images/access.png";
 import styles from "./HorizontalMenuList.module.css";
 import { useValues } from "../../context/authContext";
+import { NavLink } from "react-router-dom";
 
 function HorizontalMenuList({ setMenuList }) {
   const { isLoggedIn } = useValues();
@@ -14,17 +15,36 @@ function HorizontalMenuList({ setMenuList }) {
       <div className={styles.buttonsContainer}>
         <div className={styles.individualButtonContainer}>
           <img src={homeImg} alt="Home" />
-          <h4>Home</h4>
+          <NavLink
+            to="/"
+            style={({ isActive }) => (isActive ? { color: "blue" } : undefined)}
+          >
+            <h4>Home</h4>
+          </NavLink>
         </div>
         {isLoggedIn ? (
           <>
             <div className={styles.individualButtonContainer}>
               <img src={orderImg} alt="Orders" />
-              <h4>Orders</h4>
+              <NavLink
+                to="/"
+                style={({ isActive }) =>
+                  isActive ? { color: "blue" } : undefined
+                }
+              >
+                <h4>Orders</h4>
+              </NavLink>
             </div>
             <div className={styles.individualButtonContainer}>
               <img src={cartImg} alt="Cart" />
-              <h4>Cart</h4>
+              <NavLink
+                to="/"
+                style={({ isActive }) =>
+                  isActive ? { color: "blue" } : undefined
+                }
+              >
+                <h4>Cart</h4>
+              </NavLink>
             </div>
             <div className={styles.individualButtonContainer}>
               <img src={logoutImg} alt="Logout" />
@@ -34,7 +54,14 @@ function HorizontalMenuList({ setMenuList }) {
         ) : (
           <div className={styles.individualButtonContainer}>
             <img src={logInImg} alt="login" />
-            <h4>Sign In</h4>
+            <NavLink
+              to="signIn"
+              style={({ isActive }) =>
+                isActive ? { color: "blue" } : undefined
+              }
+            >
+              <h4>Sign In</h4>
+            </NavLink>
           </div>
         )}
       </div>

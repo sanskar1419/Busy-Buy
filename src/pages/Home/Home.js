@@ -3,7 +3,7 @@ import MenuList from "../../components/Menulist/MenuList";
 import Navbar from "../../components/Navbar/Navbar";
 
 function Home() {
-  return <></>;
+  return <h3>Home Page</h3>;
 }
 
 export default Home;
