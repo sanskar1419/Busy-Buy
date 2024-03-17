@@ -7,9 +7,12 @@ import logInImg from "../../images/access.png";
 import styles from "./HorizontalMenuList.module.css";
 import { useValues } from "../../context/authContext";
 import { NavLink } from "react-router-dom";
+import RingLoader from "react-spinners/RingLoader";
+import useLogout from "../../hooks/useLogout";
 
 function HorizontalMenuList({ setMenuList }) {
   const { isLoggedIn } = useValues();
+  const { loading, logOut } = useLogout();
   return (
     <>
       <div className={styles.buttonsContainer}>
@@ -46,9 +49,9 @@ function HorizontalMenuList({ setMenuList }) {
                 <h4>Cart</h4>
               </NavLink>
             </div>
-            <div className={styles.individualButtonContainer}>
+            <div className={styles.individualButtonContainer} onClick={logOut}>
               <img src={logoutImg} alt="Logout" />
-              <h4>Logout</h4>
+              {loading ? <RingLoader color="#36d7b7" /> : <h4>Logout</h4>}
             </div>
           </>
         ) : (
