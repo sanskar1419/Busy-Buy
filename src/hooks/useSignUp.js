@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { db } from "../firebaseinit";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 import { useValues } from "../context/authContext";
 
 const useSignUp = () => {
@@ -15,16 +15,29 @@ const useSignUp = () => {
     }
     setLoading(true);
     try {
+      const users = [];
+      const querySnapshot = await getDocs(collection(db, "Users"));
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        users.push({ id: doc.id, ...doc.data() });
+      });
+      const user = users.filter((u) => u.username === username);
+      if (user.length >= 1) {
+        toast.error("User Already Exist 😍😍😍");
+        return;
+      }
       const docRef = await addDoc(collection(db, "Users"), {
         username,
         password,
+        createdAt: new Date(),
       });
 
-      if (docRef === undefined) {
-        toast.error("Unable to Sign Up");
-      }
-      setIsLoggedIn(true);
-      toast.success("Successfully Singed Up");
+      localStorage.setItem(
+        "logged-in-user",
+        JSON.stringify({ id: docRef.id, username })
+      );
+      setIsLoggedIn({ id: docRef, username });
+      toast.success("Sign Up Successfully 😎😎😎");
     } catch (error) {
       toast.error(error.message);
     } finally {

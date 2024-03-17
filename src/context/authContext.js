@@ -10,7 +10,9 @@ function useValues() {
 
 // DEFINING CUSTOM PROVIDER
 function CustomAuthContext({ children }) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    JSON.parse(localStorage.getItem("logged-in-user")) || null
+  );
 
   return (
     <authContext.Provider
