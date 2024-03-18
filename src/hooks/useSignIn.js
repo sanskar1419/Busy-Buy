@@ -43,7 +43,7 @@ const useSignIn = () => {
     } catch (error) {
       toast.error(error.message);
     } finally {
-      setLoading(false);
+      setTimeout(() => setLoading(false), 2000);
     }
   };
   return { loading, signIn };
