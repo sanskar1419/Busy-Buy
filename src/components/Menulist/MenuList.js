@@ -43,7 +43,14 @@ function MenuList({ setMenuList }) {
             </div>
             <div className={styles.individualButtonContainer}>
               <img src={cartImg} alt="Cart" />
-              <h4>Cart</h4>
+              <NavLink
+                to="/cart"
+                style={({ isActive }) =>
+                  isActive ? { color: "Red" } : { color: "white" }
+                }
+              >
+                <h4>Cart</h4>
+              </NavLink>
             </div>
             <div className={styles.individualButtonContainer} onClick={logOut}>
               <img src={logoutImg} alt="Logout" />

@@ -9,6 +9,7 @@ import {
   Navigate,
   RouterProvider,
 } from "react-router-dom";
+import Cart from "./pages/Cart/Cart";
 
 function App() {
   const { isLoggedIn } = useValues();
@@ -44,6 +45,10 @@ function App() {
               <SignUp />
             </PrivateRoute>
           ),
+        },
+        {
+          path: "cart",
+          element: isLoggedIn ? <Cart /> : <Navigate to={"/signIn"} />,
         },
       ],
     },

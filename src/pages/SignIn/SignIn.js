@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import useSignIn from "../../hooks/useSignIn";
 import { PropagateLoader } from "react-spinners";
+import { toast } from "react-hot-toast";
 
 function SignIn() {
   const [inputs, setInputs] = useState({ username: "", password: "" });
@@ -12,6 +13,7 @@ function SignIn() {
   const handleSubmit = (e) => {
     e.preventDefault();
     signIn(inputs);
+    toast.success("Logged In Successfully 😎😎😎");
   };
 
   // console.log(loading);

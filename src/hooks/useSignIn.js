@@ -37,7 +37,6 @@ const useSignIn = () => {
           JSON.stringify({ id: user.id, username: user.username })
         );
         setIsLoggedIn({ id: user.id, username: user.username });
-        toast.success("Logged In Successfully 😎😎😎");
       });
       //   console.log("fgdfgddgf");
     } catch (error) {
