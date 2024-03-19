@@ -2,6 +2,7 @@ import Product from "../Product/Product";
 import useFetch from "../../hooks/useFetch";
 import styles from "./Products.module.css";
 import { useEffect } from "react";
+import SearchBar from "../SearchBar/SearchBar";
 
 function Products() {
   const { loadProduct, loading, setLoading, products } = useFetch();
@@ -13,6 +14,7 @@ function Products() {
   //   console.log(products);
   return (
     <>
+      <SearchBar />
       <div className={styles.productsContainer}>
         {products.map((product, index) => (
           <Product key={index} product={product} />

@@ -2,8 +2,20 @@ import styles from "./Product.module.css";
 import starImg from "../../images/star.png";
 import bagImg from "../../images/shopping.png";
 // import LazyLoad from "react-lazy-load";
+import useCart from "../../hooks/useCart";
+import { PropagateLoader } from "react-spinners";
+import { useValues } from "../../context/authContext";
+import { useNavigate } from "react-router-dom";
 
 function Product({ product }) {
+  const { loading, addToCart } = useCart();
+  const { isLoggedIn } = useValues();
+  const navigate = useNavigate();
+
+  const handleAddToCart = () => {
+    isLoggedIn ? addToCart(product) : navigate("/signIn");
+  };
+
   return (
     <div className={styles.productContainer}>
       <div className={styles.imageContainer}>
@@ -32,9 +44,18 @@ function Product({ product }) {
         </div>
         <div>Ratings</div>
       </div>
-      <button className={styles.btnAdd}>
-        <img src={bagImg} alt="bag" /> ADD TO BAG
-      </button>
+      <div className={styles.loader}>
+        {loading ? (
+          <PropagateLoader
+            color="rgb(102, 102, 240)"
+            style={{ marginBottom: "15px" }}
+          />
+        ) : (
+          <button className={styles.btnAdd} onClick={handleAddToCart}>
+            <img src={bagImg} alt="bag" /> ADD TO BAG
+          </button>
+        )}
+      </div>
     </div>
   );
 }

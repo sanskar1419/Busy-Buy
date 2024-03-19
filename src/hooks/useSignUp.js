@@ -30,6 +30,8 @@ const useSignUp = () => {
         username,
         password,
         createdAt: new Date(),
+        cart: [],
+        orders: [],
       });
 
       localStorage.setItem(

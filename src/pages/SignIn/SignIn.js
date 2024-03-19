@@ -14,7 +14,7 @@ function SignIn() {
     signIn(inputs);
   };
 
-  console.log(loading);
+  // console.log(loading);
   return (
     <div className={styles.container}>
       <div className={styles.signInContainer}>
