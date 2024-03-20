@@ -18,7 +18,7 @@
   width: 85%;
   /* margin-top: 15px; */
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: space-around;
   height: 70vh;
 }
@@ -55,8 +55,63 @@
 
 .priceBreakUpContainer {
   width: 30%;
-  height: 100%;
+  /* height: auto; */
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3), 0 2px 2px rgba(0, 0, 0, 0.2);
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+}
+
+.priceDetailsHeader {
+  border-bottom: 1px solid rgb(195, 191, 191);
+  width: 100%;
+  /* padding: 10px; */
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: gray;
+}
+
+.priceDetailsHeader p {
+  margin-left: 15px;
+}
+
+.priceContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+.priceContainer p {
+  margin-top: 8px;
+}
+.delivery {
+  text-decoration: line-through;
+  color: rgb(160, 147, 147);
+}
+
+.textGreen {
+  color: rgb(29, 174, 29);
+}
+
+.totalAmountContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  border-bottom: 1px dashed rgb(195, 191, 191);
+  border-top: 1px dashed rgb(195, 191, 191);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.totalAmountContainer h4 {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 @keyframes button-color {

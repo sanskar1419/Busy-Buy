@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 
 const useCart = () => {
   const [loading, setLoading] = useState(false);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const loggedInUserData = JSON.parse(localStorage.getItem("logged-in-user"));
 
   // console.log(loggedInUserData);

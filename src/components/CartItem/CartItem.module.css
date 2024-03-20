@@ -115,6 +115,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  margin-bottom: 10px;
 }
 
 .removeItem button {
@@ -122,9 +123,11 @@
   border-radius: 5px;
   cursor: pointer;
   font-weight: 600;
-  background: linear-gradient(45deg, rgb(233, 233, 46), yellow);
+  /* background: linear-gradient(45deg, rgb(233, 233, 46), yellow); */
   outline: none;
-  border: 1px solid rgb(142, 142, 6);
+  border: 1px solid rgb(71, 71, 195);
+  animation: button-color 4s ease-in-out alternate infinite;
+  color: white;
 }
 
 @keyframes rating-color {
@@ -138,5 +141,19 @@
 
   100% {
     background-color: rgb(5, 43, 5);
+  }
+}
+
+@keyframes button-color {
+  0% {
+    background-color: black;
+  }
+
+  50% {
+    background-color: rgb(29, 27, 27);
+  }
+
+  100% {
+    background-color: black;
   }
 }

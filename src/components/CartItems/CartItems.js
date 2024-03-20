@@ -17,7 +17,7 @@ function CartItems() {
     }
   }, []);
 
-  console.log(user);
+  // console.log(user);
   return (
     <div className={styles.cartItemsContainer}>
       {user === null
