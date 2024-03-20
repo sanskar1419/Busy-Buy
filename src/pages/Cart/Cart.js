@@ -72,7 +72,7 @@ function Cart() {
               </div>
               <div className={styles.totalAmountContainer}>
                 <h4>Total Amount</h4>
-                <h4></h4>
+                <h4>&#8377; {priceBreakUp.totalPrice}</h4>
               </div>
               <div className={styles.priceContainer}>
                 <p className={styles.textGreen}>

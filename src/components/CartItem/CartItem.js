@@ -2,8 +2,10 @@ import styles from "./CartItem.module.css";
 import plusImg from "../../images/plus.png";
 import minusImg from "../../images/remove.png";
 import starImg from "../../images/star.png";
+import useCart from "../../hooks/useCart";
 
 function CartItem({ product }) {
+  const { removeFromCart } = useCart();
   return (
     <div className={styles.itemContainer}>
       <div className={styles.imageAndQuantityContainer}>
@@ -44,7 +46,9 @@ function CartItem({ product }) {
           <div>Ratings</div>
         </div>
         <div className={styles.removeItem}>
-          <button>Remove Item</button>
+          <button onClick={() => removeFromCart(product.id)}>
+            Remove Item
+          </button>
         </div>
       </div>
     </div>

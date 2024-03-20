@@ -64,7 +64,21 @@ const useCart = () => {
       }, 1000);
     }
   };
-  return { loading, addToCart, user };
+
+  const removeFromCart = async (productId) => {
+    const index = user.cart.findIndex((product) => product.id === productId);
+    // console.log(index);
+    user.cart.splice(index, 1);
+    setUser(user);
+    // console.log(user);
+    const docRef = doc(db, "Users", loggedInUserData.id);
+    await updateDoc(docRef, {
+      cart: user.cart,
+    });
+    toast.success("Item has been Successfully removed");
+  };
+
+  return { loading, addToCart, user, removeFromCart };
 };
 
 export default useCart;
