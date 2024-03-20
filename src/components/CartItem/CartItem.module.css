@@ -100,8 +100,23 @@
   margin-bottom: 20px;
 }
 
-.quantityContainer img {
+.quantityContainer button {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.quantityContainer button img {
   width: 30px;
+  transition: 0.5s all ease-in;
+}
+
+.quantityContainer button img:active {
+  transform: scale(1.1);
 }
 
 .quantity {

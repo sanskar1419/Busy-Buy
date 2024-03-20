@@ -78,7 +78,42 @@ const useCart = () => {
     toast.success("Item has been Successfully removed");
   };
 
-  return { loading, addToCart, user, removeFromCart };
+  const increaseQuantity = async (productId) => {
+    const index = user.cart.findIndex((product) => product.id === productId);
+    user.cart[index].quantity++;
+    setUser(user);
+    const docRef = doc(db, "Users", loggedInUserData.id);
+    await updateDoc(docRef, {
+      cart: user.cart,
+    });
+    toast.success(
+      `Quantity has been increased to ${user.cart[index].quantity}`
+    );
+  };
+
+  const decreaseQuantity = async (productId) => {
+    const index = user.cart.findIndex((product) => product.id === productId);
+    if (user.cart[index].quantity > 1) {
+      user.cart[index].quantity--;
+      setUser(user);
+      const docRef = doc(db, "Users", loggedInUserData.id);
+      await updateDoc(docRef, {
+        cart: user.cart,
+      });
+      toast.success(
+        `Quantity has been decreased to ${user.cart[index].quantity}`
+      );
+    }
+  };
+
+  return {
+    loading,
+    addToCart,
+    user,
+    removeFromCart,
+    increaseQuantity,
+    decreaseQuantity,
+  };
 };
 
 export default useCart;

@@ -5,7 +5,7 @@ import starImg from "../../images/star.png";
 import useCart from "../../hooks/useCart";
 
 function CartItem({ product }) {
-  const { removeFromCart } = useCart();
+  const { removeFromCart, increaseQuantity, decreaseQuantity } = useCart();
   return (
     <div className={styles.itemContainer}>
       <div className={styles.imageAndQuantityContainer}>
@@ -13,9 +13,13 @@ function CartItem({ product }) {
           <img src={product.imageURL}></img>
         </div>
         <div className={styles.quantityContainer}>
-          <img src={plusImg} alt="plus" />
+          <button onClick={() => decreaseQuantity(product.id)}>
+            <img src={minusImg} alt="minus" />
+          </button>
           <span className={styles.quantity}>{product.quantity}</span>
-          <img src={minusImg} alt="minus" />
+          <button onClick={() => increaseQuantity(product.id)}>
+            <img src={plusImg} alt="plus" />
+          </button>
         </div>
       </div>
       <div className={styles.productDetailContainer}>
