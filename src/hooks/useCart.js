@@ -10,12 +10,16 @@ const useCart = () => {
 
   // console.log(loggedInUserData);
   useEffect(() => {
+    setLoading(true);
     if (loggedInUserData !== null) {
       onSnapshot(doc(db, "Users", loggedInUserData.id), (doc) => {
         // console.log("Current data: ", doc.data());
         setUser({ id: loggedInUserData.id, ...doc.data() });
       });
     }
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
   }, []);
 
   const addToCart = async (product) => {
