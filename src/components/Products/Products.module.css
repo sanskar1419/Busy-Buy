@@ -6,3 +6,19 @@
   justify-content: space-around;
   flex-wrap: wrap;
 }
+
+.searchBarContainer {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.searchBarContainer input {
+  padding: 15px;
+  outline: blue;
+  border-radius: 10px;
+  width: 80%;
+  /* border: 1px black; */
+}

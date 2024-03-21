@@ -7,6 +7,8 @@ const useFetch = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
 
+  // console.log(nameInput);
+
   const loadProduct = async () => {
     try {
       onSnapshot(collection(db, "Products"), (snapShot) => {
@@ -16,6 +18,7 @@ const useFetch = () => {
             ...doc.data(),
           };
         });
+
         setProducts(products);
       });
     } catch (error) {
@@ -26,7 +29,13 @@ const useFetch = () => {
       }, 3000);
     }
   };
-  return { loading, products, loadProduct, setLoading };
+  return {
+    loading,
+    products,
+    loadProduct,
+    setLoading,
+    setProducts,
+  };
 };
 
 export default useFetch;
