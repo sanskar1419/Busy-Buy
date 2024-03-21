@@ -30,7 +30,7 @@ function HorizontalMenuList({ setMenuList }) {
             <div className={styles.individualButtonContainer}>
               <img src={orderImg} alt="Orders" />
               <NavLink
-                to="/"
+                to="/order"
                 style={({ isActive }) =>
                   isActive ? { color: "blue" } : undefined
                 }

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import emptyCartImg from "../../images/empty-cart.png";
-import styles from "./NoItemInCart.module.css";
+import emptyCartImg from "../../images/noOrder.png";
+import styles from "./NoOrder.module.css";
 import { useNavigate } from "react-router-dom";
 
-function NoItemInCart() {
+function NoOrders() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -14,9 +14,9 @@ function NoItemInCart() {
   }, []);
   return (
     <div className={styles.emptyCartContainer}>
-      <img src={emptyCartImg} alt="empty cart" loading="lazy" />
-      <div className={styles.emptyText}>Your cart is empty!</div>
-      <div>Add items to it now.</div>
+      <img src={emptyCartImg} alt="empty order" loading="lazy" />
+      <div className={styles.emptyText}>No Items has been Ordered Yet</div>
+      <div>See you soon with orders</div>
       <button
         className={styles.btnAdd}
         onClick={() => {
@@ -29,4 +29,4 @@ function NoItemInCart() {
   );
 }
 
-export default NoItemInCart;
+export default NoOrders;

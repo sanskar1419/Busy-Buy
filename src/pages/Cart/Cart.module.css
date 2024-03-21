@@ -53,6 +53,10 @@
   animation: button-color 2s ease-in-out alternate infinite;
 }
 
+.loaderContainer {
+  margin-right: 40px;
+}
+
 .priceBreakUpContainer {
   width: 30%;
   /* height: auto; */

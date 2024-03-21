@@ -4,9 +4,12 @@ import useCart from "../../hooks/useCart";
 import GridLoader from "react-spinners/GridLoader";
 import CartItems from "../../components/CartItems/CartItems";
 import { useEffect, useState } from "react";
+import useOrder from "../../hooks/useOrder";
+import RingLoader from "react-spinners/RingLoader";
 
 function Cart() {
   const { loading, user } = useCart();
+  const { orderItems, orderLoading } = useOrder();
   const [priceBreakUp, setPriceBreakup] = useState({
     totalPrice: 0,
     totalDiscount: 0,
@@ -46,7 +49,15 @@ function Cart() {
             <div className={styles.cartItemsAndOrderContainer}>
               <CartItems />
               <div className={styles.placeButtonContainer}>
-                <button>PLACE ORDER</button>
+                {orderLoading ? (
+                  <div className={styles.loaderContainer}>
+                    <RingLoader color="blue" />
+                  </div>
+                ) : (
+                  <button onClick={() => orderItems(user.cart)}>
+                    PLACE ORDER
+                  </button>
+                )}
               </div>
             </div>
             <div className={styles.priceBreakUpContainer}>

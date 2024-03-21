@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
+import Orders from "./pages/Orders/Orders";
 import { useValues } from "./context/authContext";
 import { Toaster } from "react-hot-toast";
 import {
@@ -49,6 +50,10 @@ function App() {
         {
           path: "cart",
           element: isLoggedIn ? <Cart /> : <Navigate to={"/signIn"} />,
+        },
+        {
+          path: "order",
+          element: isLoggedIn ? <Orders /> : <Navigate to={"/signIn"} />,
         },
       ],
     },
