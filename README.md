@@ -1,6 +1,57 @@
-# Getting Started with Create React App
+# Busy_Buy
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Busy_Buy is a web application for customers of an e-commerce business. Here individuals can browse through available item, add or remove from cart and complete the purchasing process.
+
+## Render and Vercel Deployment Link
+
+To view the web application go to this link
+
+```bash
+  https://photo-folio-pxle.onrender.com
+```
+
+```bash
+  https://photo-folio-q84mkd3gw-sanskar-guptas-projects.vercel.app
+```
+
+## Tech Stack
+
+**DB:** Cloud Firestore
+**Client:** ReactJs, CSS, HTML
+
+## Installation
+
+To install the Busy_Buy, follow these steps:
+
+Clone this repository using the following command:
+
+```
+$ git clone https://github.com/sanskar1419/Busy-Buy.git
+```
+
+Install the required dependencies using the following command:
+
+```
+$ npm install
+```
+
+or
+
+```
+$ npm i
+```
+
+Start the application using the following command:
+
+```
+$ npm start
+```
+
+Open the application in your web browser by visiting the following URL:
+
+```
+$ http://localhost:3000
+```
 
 ## Available Scripts
 
@@ -39,32 +90,24 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Screenshots
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Home(Products Page with out signIn)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Home](https://github.com/sanskar1419/Project_Screenshot/blob/master/Busy_Buy/Screenshot%202024-03-23%20131533.png?raw=true)
 
-### Code Splitting
+### Home(Products Page with signIn)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![Home](https://github.com/sanskar1419/Project_Screenshot/blob/master/Busy_Buy/Screenshot%202024-03-23%20131515.png?raw=true)
 
-### Analyzing the Bundle Size
+### Orders Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![Orders Page](https://github.com/sanskar1419/Project_Screenshot/blob/master/Busy_Buy/Screenshot%202024-03-23%20131619.png?raw=true)
 
-### Making a Progressive Web App
+### Cart Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![Cart Page](https://github.com/sanskar1419/Project_Screenshot/blob/master/Busy_Buy/Screenshot%202024-03-23%20131631.png?raw=true)
 
-### Advanced Configuration
+### Cart Page(No items in cart)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Cart Page](https://github.com/sanskar1419/Project_Screenshot/blob/master/Busy_Buy/Screenshot%202024-03-23%20131641.png?raw=true)
