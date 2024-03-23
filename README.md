@@ -2,16 +2,12 @@
 
 Busy_Buy is a web application for customers of an e-commerce business. Here individuals can browse through available item, add or remove from cart and complete the purchasing process.
 
-## Render and Vercel Deployment Link
+## Vercel Deployment Link
 
 To view the web application go to this link
 
 ```bash
-  https://photo-folio-pxle.onrender.com
-```
-
-```bash
-  https://photo-folio-q84mkd3gw-sanskar-guptas-projects.vercel.app
+ https://busy-q5bhxcchz-sanskar-guptas-projects.vercel.app
 ```
 
 ## Tech Stack
