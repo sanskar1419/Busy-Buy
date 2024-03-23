@@ -1,3 +1,4 @@
+// Importing necessary module, hooks, images etc.
 import styles from "./MenuList.module.css";
 import homeImg from "../../images/home.png";
 import orderImg from "../../images/order.png";
@@ -10,10 +11,13 @@ import { NavLink } from "react-router-dom";
 import RingLoader from "react-spinners/RingLoader";
 import useLogout from "../../hooks/useLogout";
 
+// Creating MenuList functional component
 function MenuList({ setMenuList }) {
+  // Destructuring values from use value and useLogout custom hook
   const { isLoggedIn } = useValues();
   const { loading, logOut } = useLogout();
 
+  // Returning the JSX Content
   return (
     <div className={styles.buttonsContainer}>
       <h3>Menu Items</h3>
@@ -82,4 +86,5 @@ function MenuList({ setMenuList }) {
   );
 }
 
+// Exporting MenuList component
 export default MenuList;

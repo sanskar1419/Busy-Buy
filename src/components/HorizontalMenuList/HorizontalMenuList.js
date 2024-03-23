@@ -1,3 +1,4 @@
+// Importing necessary module, hooks, images etc.
 import homeImg from "../../images/home.png";
 import cartImg from "../../images/Cart.png";
 import orderImg from "../../images/order.png";
@@ -10,9 +11,13 @@ import { NavLink } from "react-router-dom";
 import RingLoader from "react-spinners/RingLoader";
 import useLogout from "../../hooks/useLogout";
 
+// Creating HorizontalMenuList functional component
 function HorizontalMenuList({ setMenuList }) {
+  // Destructuring values from use value and useLogout custom hook
   const { isLoggedIn } = useValues();
   const { loading, logOut } = useLogout();
+
+  // Returning the JSX Content
   return (
     <>
       <div className={styles.buttonsContainer}>
@@ -75,4 +80,5 @@ function HorizontalMenuList({ setMenuList }) {
   );
 }
 
+// Exporting HorizontalMenuList component
 export default HorizontalMenuList;

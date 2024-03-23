@@ -1,6 +1,9 @@
+// Importing Styles
 import styles from "./FilterButton.module.css";
 
+// Creating FilterButton functional component
 function FilterButton({ setFilterMenu }) {
+  // Returning the JSX Content
   return (
     <div
       className={styles.filterMenuContainer}
@@ -13,4 +16,5 @@ function FilterButton({ setFilterMenu }) {
   );
 }
 
+// Exporting FilterButton component
 export default FilterButton;

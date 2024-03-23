@@ -1,3 +1,4 @@
+// Importing necessary module, hooks, images etc.
 import styles from "./Navbar.module.css";
 import logoImg from "../../images/family.png";
 import HorizontalMenuList from "../HorizontalMenuList/HorizontalMenuList";
@@ -6,8 +7,11 @@ import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+// Creating Navbar functional component
 function Navbar() {
+  // Using useState to define state variable
   const [menuList, setMenuList] = useState(false);
+  // Returning the JSX Content
   return (
     <>
       <div className={styles.navBarContainer}>
@@ -27,4 +31,5 @@ function Navbar() {
   );
 }
 
+// Exporting Navbar component
 export default Navbar;

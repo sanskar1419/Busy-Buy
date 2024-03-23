@@ -1,11 +1,16 @@
+// Importing necessary module, hooks etc.
 import styles from "./CartItem.module.css";
 import plusImg from "../../images/plus.png";
 import minusImg from "../../images/remove.png";
 import starImg from "../../images/star.png";
 import useCart from "../../hooks/useCart";
 
+// Creating CartItem functional component
 function CartItem({ product }) {
+  // Destructuring removeFromCart, increaseQuantity, decreaseQuantity from useCart custom hook
   const { removeFromCart, increaseQuantity, decreaseQuantity } = useCart();
+
+  // Returning the JSX Content
   return (
     <div className={styles.itemContainer}>
       <div className={styles.imageAndQuantityContainer}>
@@ -59,4 +64,5 @@ function CartItem({ product }) {
   );
 }
 
+// Exporting CartItem component
 export default CartItem;

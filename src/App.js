@@ -1,8 +1,3 @@
-import Navbar from "./components/Navbar/Navbar";
-import Home from "./pages/Home/Home";
-import SignIn from "./pages/SignIn/SignIn";
-import SignUp from "./pages/SignUp/SignUp";
-import Orders from "./pages/Orders/Orders";
 import { useValues } from "./context/authContext";
 import { Toaster } from "react-hot-toast";
 import {
@@ -10,11 +5,21 @@ import {
   Navigate,
   RouterProvider,
 } from "react-router-dom";
-import Cart from "./pages/Cart/Cart";
 
+// Importing Pages and Component
+import Home from "./pages/Home/Home";
+import SignIn from "./pages/SignIn/SignIn";
+import SignUp from "./pages/SignUp/SignUp";
+import Orders from "./pages/Orders/Orders";
+import Cart from "./pages/Cart/Cart";
+import Navbar from "./components/Navbar/Navbar";
+
+// Creating App functional component
 function App() {
+  // Fetching value from useValues custom hook
   const { isLoggedIn } = useValues();
 
+  // Protecting Routes
   const PrivateRoute = ({ children }) => {
     if (isLoggedIn) {
       return <Navigate to="/" replace={true} />;
@@ -22,6 +27,7 @@ function App() {
     return children;
   };
 
+  // Defining routing for different pages and component
   const router = createBrowserRouter([
     {
       path: "/",
@@ -66,4 +72,5 @@ function App() {
   );
 }
 
+// Exporting component
 export default App;

@@ -1,14 +1,14 @@
+/* Sign In Page Container */
 .container {
   width: 99vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* padding: 50px; */
   margin-top: 50px;
 }
 
+/* Sign in form container */
 .signInContainer {
-  /* border: 4px solid black; */
   width: 35%;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3), 0 2px 2px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -17,6 +17,7 @@
   flex-direction: column;
 }
 
+/* Form Heading */
 .headingContainer {
   display: flex;
   align-items: center;
@@ -29,6 +30,7 @@
   margin-right: 10px;
 }
 
+/* Form Container */
 .signInContainer form {
   width: 80%;
 }
@@ -54,7 +56,6 @@
   outline: blue;
   border-radius: 10px;
   margin-top: 10px;
-  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.2); */
 }
 
 .buttonContainer {
@@ -81,6 +82,7 @@
   background-color: white;
 }
 
+/* Bounce animation for Heading */
 @keyframes bounce {
   0% {
     transform: scale(0.9);

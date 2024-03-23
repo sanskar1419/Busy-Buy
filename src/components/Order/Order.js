@@ -1,8 +1,12 @@
+// Importing Styles
 import styles from "./Order.module.css";
 
+// Creating Order functional component
 function Order({ order }) {
+  // Destructuring order
   const { orderedDate, items } = order;
-  //   console.log(orderedDate);
+
+  // Returning the JSX Content
   return (
     <div className={styles.individualOrderContainer}>
       <div className={styles.orderDateContainer}>
@@ -33,4 +37,5 @@ function Order({ order }) {
   );
 }
 
+// Exporting Order component
 export default Order;

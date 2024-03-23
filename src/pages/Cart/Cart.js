@@ -1,3 +1,4 @@
+// Importing necessary module, component, hooks etc
 import styles from "./Cart.module.css";
 import NoItemInCart from "../../components/NoItemsInCart/NoItemInCart";
 import useCart from "../../hooks/useCart";
@@ -7,9 +8,13 @@ import { useEffect, useState } from "react";
 import useOrder from "../../hooks/useOrder";
 import RingLoader from "react-spinners/RingLoader";
 
+// Defining Cart functional component
 function Cart() {
+  // Destructuring loading state and logged in user data from useCart custom hook
   const { loading, user } = useCart();
+  // Destructuring orderItems function and orderLoading state from useOrder custom hook
   const { orderItems, orderLoading } = useOrder();
+  // Defining useState hook name priceBreakup to store totals
   const [priceBreakUp, setPriceBreakup] = useState({
     totalPrice: 0,
     totalDiscount: 0,
@@ -17,6 +22,7 @@ function Cart() {
     totalMRP: 0,
   });
 
+  // Using useEffect hook to calculate totals on mounting and whenever user data changes
   useEffect(() => {
     // console.log(user);
     if (user !== null) {
@@ -36,9 +42,10 @@ function Cart() {
     }
   }, [user]);
 
-  // console.log(priceBreakUp);
+  // Returning JSX Content
   return (
     <div className={styles.bodyContainer}>
+      {/* If loading state is true show the gridloader */}
       {loading ? (
         <GridLoader color="blue" />
       ) : priceBreakUp.totalItem === 0 ? (
@@ -98,4 +105,5 @@ function Cart() {
   );
 }
 
+// Exporting Cart Component
 export default Cart;

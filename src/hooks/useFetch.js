@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+// Importing necessary module, hook etc.
+import { useState } from "react";
 import { toast } from "react-hot-toast";
-import { collection, onSnapshot, getDocs } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../firebaseinit";
 
+// Defining useFetch custom hook function
 const useFetch = () => {
+  // Using useState hook to define state variables
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
 
-  // console.log(nameInput);
-
+  // Function to load all the product from cloud fire store
   const loadProduct = async () => {
     try {
       onSnapshot(collection(db, "Products"), (snapShot) => {
@@ -29,6 +31,8 @@ const useFetch = () => {
       }, 3000);
     }
   };
+
+  // Returning the object of necessary function and state variable
   return {
     loading,
     products,
@@ -38,4 +42,5 @@ const useFetch = () => {
   };
 };
 
+// Exporting useFetch custom hook
 export default useFetch;

@@ -16,15 +16,11 @@ function Products() {
 
   useEffect(() => {
     loadProduct();
-    // setLoading(false);
   }, []);
-  //   console.log(products);
 
   const filterItems = products.filter((p) =>
     p.name.toLocaleLowerCase().includes(nameInput)
   );
-
-  // console.log(filterItems);
 
   const handleChange = (e) => {
     setPrice(e.target.value);
@@ -37,26 +33,20 @@ function Products() {
       setSelectedCategory((prev) => {
         return prev.filter((p) => p !== e.target.value);
       });
-      // setSelectedCategory(selectedCategory);
     }
   };
 
   useEffect(() => {
     const result = filterItems.filter((p) => {
       if (selectedCategory.length !== 0) {
-        // const isPriceLess = p.price <= price ? true : false;
-        // const isCategory = selectedCategory.includes(p.type);
-        // console.log(1);
         return p.price <= price && selectedCategory.includes(p.type);
       } else {
-        // console.log(2);
         return p.price <= price;
       }
     });
 
     setFilterProducts(result);
   }, [price, selectedCategory.length]);
-  // console.log(filterProducts);
 
   return (
     <>

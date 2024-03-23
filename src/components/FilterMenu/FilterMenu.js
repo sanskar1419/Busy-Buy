@@ -1,7 +1,9 @@
-import { useState } from "react";
+// Importing Styles
 import styles from "./FilterMenu.module.css";
 
+// Creating FilterMenu functional component
 function FilterMenu({ handleChange, price, handleCategoryChange }) {
+  // Returning the JSX Content
   return (
     <div className={styles.filterMenuContainer}>
       <div className={styles.heading}>Filter</div>
@@ -59,4 +61,5 @@ function FilterMenu({ handleChange, price, handleCategoryChange }) {
   );
 }
 
+// Exporting FilterMenu component
 export default FilterMenu;

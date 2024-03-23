@@ -1,21 +1,25 @@
+// Importing necessary module, hooks, images etc.
 import styles from "./Product.module.css";
 import starImg from "../../images/star.png";
 import bagImg from "../../images/shopping.png";
-// import LazyLoad from "react-lazy-load";
 import useCart from "../../hooks/useCart";
 import { PropagateLoader } from "react-spinners";
 import { useValues } from "../../context/authContext";
 import { useNavigate } from "react-router-dom";
 
+// Creating Product functional component
 function Product({ product }) {
+  // Destructuring values from use value and useCart custom hook
   const { loading, addToCart } = useCart();
   const { isLoggedIn } = useValues();
   const navigate = useNavigate();
 
+  // If the user is not signed in redirecting to signIn page
   const handleAddToCart = () => {
     isLoggedIn ? addToCart(product) : navigate("/signIn");
   };
 
+  // Returning the JSX Content
   return (
     <div className={styles.productContainer}>
       <div className={styles.imageContainer}>
@@ -60,4 +64,5 @@ function Product({ product }) {
   );
 }
 
+// Exporting Product component
 export default Product;

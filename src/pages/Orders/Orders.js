@@ -1,15 +1,20 @@
+// Importing necessary module, component, hooks etc.
 import { useEffect, useState } from "react";
-import useOrder from "../../hooks/useOrder";
 import styles from "./Orders.module.css";
 import GridLoader from "react-spinners/GridLoader";
-import { doc, updateDoc, onSnapshot, getDoc } from "firebase/firestore";
+import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebaseinit";
 import Order from "../../components/Order/Order";
 import NoOrders from "../../components/NoOrder/NoOrder";
 
+// Defining Orders functional component
 function Orders() {
+  // Defining useState hook to store user detail
   const [user, setUser] = useState(null);
+  // Defining useState hook to store loading status
   const [loading, setLoading] = useState(false);
+
+  // Fetching the user data details from the cloud fire store
   useEffect(() => {
     setLoading(true);
     const loggedInUserData = JSON.parse(localStorage.getItem("logged-in-user"));
@@ -22,7 +27,8 @@ function Orders() {
       setLoading(false);
     }, 1000);
   }, []);
-  // console.log(user);
+
+  // Returning the JSX content
   return (
     <div className={styles.mainContainer}>
       {loading ? (
@@ -45,4 +51,5 @@ function Orders() {
   );
 }
 
+// Exporting the Orders content
 export default Orders;

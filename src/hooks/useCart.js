@@ -1,14 +1,18 @@
+// Importing necessary module, hook etc.
 import { useEffect, useState } from "react";
-import { doc, updateDoc, onSnapshot, getDoc } from "firebase/firestore";
+import { doc, updateDoc, onSnapshot } from "firebase/firestore";
 import { db } from "../firebaseinit";
 import { toast } from "react-hot-toast";
 
+// Creating custom hook function name useCart
 const useCart = () => {
+  // Using useState hook to define state variable
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState(null);
+  // Getting logged in user data from local storage
   const loggedInUserData = JSON.parse(localStorage.getItem("logged-in-user"));
 
-  // console.log(loggedInUserData);
+  // Getting realtime user data from cloud fire store based on the logged in Id
   useEffect(() => {
     setLoading(true);
     if (loggedInUserData !== null) {
@@ -22,40 +26,43 @@ const useCart = () => {
     }, 1000);
   }, []);
 
+  // Function to add the product to the cart array inside user data
   const addToCart = async (product) => {
     setLoading(true);
     try {
+      // 1. Getting user reference
       const docRef = doc(db, "Users", loggedInUserData.id);
+      // 2. If cart is empty directly push the product in cart
       if (user.cart.length === 0) {
         user.cart.push({ ...product, quantity: 1 });
         await updateDoc(docRef, {
           cart: user.cart,
         });
         toast.success("Product Added To Cart");
-        // console.log(user);
         return;
       }
 
+      // 2. Checking weather product exist or not
       const productIndex = user.cart.findIndex((p) => p.id === product.id);
 
+      // 3. If product doesn't exist, directly push the element in cart array
       if (productIndex === -1) {
         user.cart.push({ ...product, quantity: 1 });
         await updateDoc(docRef, {
           cart: user.cart,
         });
         toast.success("Product Added To Cart");
-        // console.log(user);
         return;
-      } else {
+      }
+      // If the product exist increase the Quantity
+      else {
         user.cart[productIndex].quantity++;
         await updateDoc(docRef, {
           cart: user.cart,
         });
         toast.success("Product Added To Cart");
-        // console.log(user);
         return;
       }
-      // console.log(isProductInCart);
     } catch (error) {
       toast.error(error.message);
     } finally {
@@ -65,12 +72,11 @@ const useCart = () => {
     }
   };
 
+  // Function to remove the element from cart
   const removeFromCart = async (productId) => {
     const index = user.cart.findIndex((product) => product.id === productId);
-    // console.log(index);
     user.cart.splice(index, 1);
     setUser(user);
-    // console.log(user);
     const docRef = doc(db, "Users", loggedInUserData.id);
     await updateDoc(docRef, {
       cart: user.cart,
@@ -78,6 +84,7 @@ const useCart = () => {
     toast.success("Item has been Successfully removed");
   };
 
+  // Function to increase the quantity by one
   const increaseQuantity = async (productId) => {
     const index = user.cart.findIndex((product) => product.id === productId);
     user.cart[index].quantity++;
@@ -91,6 +98,7 @@ const useCart = () => {
     );
   };
 
+  // Function to decrease the quantity by 1
   const decreaseQuantity = async (productId) => {
     const index = user.cart.findIndex((product) => product.id === productId);
     if (user.cart[index].quantity > 1) {
@@ -106,6 +114,7 @@ const useCart = () => {
     }
   };
 
+  // Returning necessary function and state
   return {
     loading,
     addToCart,
@@ -116,4 +125,5 @@ const useCart = () => {
   };
 };
 
+// Exporting useCart Hook
 export default useCart;

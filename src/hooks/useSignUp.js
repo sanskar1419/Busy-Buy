@@ -1,13 +1,18 @@
+// Importing necessary module, hook etc.
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { db } from "../firebaseinit";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import { useValues } from "../context/authContext";
 
+// Defining useSignUp custom hook function
 const useSignUp = () => {
+  // Using useState hook to define state variables
   const [loading, setLoading] = useState(false);
+  // Getting value from useValues hook
   const { setIsLoggedIn } = useValues();
 
+  // Function to add the user signUp form data in cloud fire store collection
   const signup = async ({ username, password, confirmPassword }) => {
     const success = handleInputError({ username, password, confirmPassword });
     if (!success) {
@@ -46,12 +51,13 @@ const useSignUp = () => {
       setLoading(false);
     }
   };
-
+  // Returning the object of necessary function and state variable
   return { loading, signup };
 };
-
+// Exporting useSignIn custom hook
 export default useSignUp;
 
+// Function to validate user inputs
 function handleInputError({ username, password, confirmPassword }) {
   var passwordExpression =
     /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{7,}$/;
